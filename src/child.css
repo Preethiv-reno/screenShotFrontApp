@@ -1,0 +1,49 @@
+.centerAlign{
+    display: inline-block;
+    padding: 200px 0;
+}
+.columnSpacing{
+    margin-bottom: 5%;
+}
+.columnTopSpacing{
+    margin-top: 15%;
+}
+
+.textbox{
+    height: 3em;
+    width: 40em;
+    text-align: center;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    box-shadow: 3px 2px 12px 2px rgb(73 73 73 / 23%);
+}
+
+.submitButton{
+  background-color: rgb(41, 41, 41);
+  width: 17em;
+  border: transparent;
+  height: 2em;
+  font-size: 2em;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+
+.submitButton:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+body{
+    background-image: url('../src/bacgroundImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.errorMsge{
+    color: #cc0033;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  text-shadow: 1px 1px rgba(250,250,250,.3);
+}
