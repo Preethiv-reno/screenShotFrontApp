@@ -9,10 +9,12 @@ const ChildComponent = () =>{
     const [url,setUrl] = React.useState('');
     const [loaded, setLoaded] = React.useState(true);
     const [errorMsg,setErrorMsg] = React.useState('');
+    const [disableSubmit,setDisableSubmit] = React.useState(false);
     const handleSubmit = () =>{
         setErrorMsg('');
         if(url && url != ''){
         setLoaded(!loaded);
+        setDisableSubmit(true);
         axios.post('https://screenshotbackendapp.herokuapp.com/',{url:`${url}`}).then((data)=>{
            console.log(data.data);
            const b64 = new Buffer.from(data.data).toString('base64');
@@ -24,10 +26,12 @@ const ChildComponent = () =>{
           document.body.appendChild(link);
           link.click();
           setLoaded(loaded);
+          setDisableSubmit(false);
         }).catch((e) => {
             console.log(e);
             setErrorMsg('Kindly check the url (https://...)');
             setLoaded(loaded);
+            setDisableSubmit(false);
         });
     }
     else{
@@ -55,7 +59,7 @@ const ChildComponent = () =>{
                </Row>
                <Row>
                    <Col>
-                   <Button bsPrefix='submitButton' onClick={()=>handleSubmit()}>Submit</Button>
+                   <Button bsPrefix='submitButton' onClick={()=>handleSubmit()} disabled={disableSubmit} >Submit</Button>
                    </Col>
                </Row>
                <Row>
